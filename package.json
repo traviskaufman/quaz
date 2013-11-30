@@ -1,0 +1,28 @@
+{
+  "name": "quaz",
+  "version": "0.0.1",
+  "description": "ES3-compatible ES6 quasi-literal implementation",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "./node_modules/.bin/jshint lib/ test/",
+    "test": "./node_modules/.bin/mocha --reporter spec --require test/spec-helper test/*.spec.js"
+  },
+  "keywords": [
+    "quasi-literals",
+    "es6",
+    "harmony",
+    "polyfill",
+    "shim",
+    "templates",
+    "DSLs"
+  ],
+  "author": "Travis Kaufman",
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "~2.3.0",
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1",
+    "sinon": "~1.7.3",
+    "cyclonejs": "0.0.2"
+  }
+}

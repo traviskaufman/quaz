@@ -1,0 +1,31 @@
+{
+  "camelcase": true,
+  "curly": true,
+  "freeze": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "maxstatements": 50,
+  "es3": true,
+  "trailing": true,
+  "maxlen": 80,
+  "globalstrict": true,
+  "eqnull": true,
+  "node": true,
+  "predef": [
+    "module",
+    "exports",
+    "require",
+    "describe",
+    "it",
+    "xit",
+    "xdescribe",
+    "beforeEach",
+    "sinon",
+    "assert",
+    "BASE_DIR",
+    "FIXTURES_DIR"
+  ]
+}
