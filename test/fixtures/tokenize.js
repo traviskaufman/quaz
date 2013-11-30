@@ -95,5 +95,22 @@ module.exports = {
         value: '"foo" + qHandler("baz ${bar} bing ${heregoes}")'
       }
     ]
+  },
+  QUASI_COMPLEX_THEN_LITERAL: {
+    input: '${foo}${qz(\'a ${baz*2}\')} something',
+    expected: [
+      {
+        type: 'substitution',
+        value: 'foo'
+      },
+      {
+        type: 'substitution',
+        value: 'qz(\'a ${baz*2}\')'
+      },
+      {
+        type: 'literal',
+        value: ' something'
+      }
+    ]
   }
 };

@@ -59,6 +59,11 @@ describe('quaz tokenize function', function() {
       assertParsedCorrect('QUASI_NESTED');
     });
 
+    it('parses input with complex quasi expression followed by literal',
+       function() {
+      assertParsedCorrect('QUASI_COMPLEX_THEN_LITERAL');
+    });
+
   });
 
 });
