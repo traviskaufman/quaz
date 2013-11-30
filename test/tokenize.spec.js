@@ -51,6 +51,14 @@ describe('quaz tokenize function', function() {
       assertParsedCorrect('LITERAL_ESCAPED');
     });
 
+    it('parses input with inner non-quasi brackets', function() {
+      assertParsedCorrect('QUASI_INNER_BRACKETS');
+    });
+
+    it('parses input with nested quasis without extracting them', function() {
+      assertParsedCorrect('QUASI_NESTED');
+    });
+
   });
 
 });

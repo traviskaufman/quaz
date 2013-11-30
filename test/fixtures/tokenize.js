@@ -69,5 +69,31 @@ module.exports = {
   LITERAL_ESCAPED: {
     input: 'Hello \\${person}',
     expected: [{type: 'literal', value: 'Hello \\${person}'}]
+  },
+  QUASI_INNER_BRACKETS: {
+    input: 'Hello ${fn({foo: {bar: baz}})}',
+    expected: [
+      {
+        type: 'literal',
+        value: 'Hello '
+      },
+      {
+        type: 'substitution',
+        value: 'fn({foo: {bar: baz}})'
+      }
+    ]
+  },
+  QUASI_NESTED: {
+    input: 'Hello ${"foo" + qHandler("baz ${bar} bing ${heregoes}")}',
+    expected: [
+      {
+        type: 'literal',
+        value: 'Hello '
+      },
+      {
+        type: 'substitution',
+        value: '"foo" + qHandler("baz ${bar} bing ${heregoes}")'
+      }
+    ]
   }
 };
