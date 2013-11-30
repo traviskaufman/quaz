@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '${person}'
+        value: 'person'
       },
       {
         type: 'literal',
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '${name}'
+        value: 'name'
       },
       {
         type: 'literal',
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '${i * 3 + foo(4)}'
+        value: 'i * 3 + foo(4)'
       }
     ]
   },
@@ -49,7 +49,7 @@ module.exports = {
   // Only contains a QL
   QUASI_ONLY: {
     input: '${person + "!"}',
-    expected: [{type: 'substitution', value: '${person + "!"}'}]
+    expected: [{type: 'substitution', value: 'person + "!"'}]
   },
   // Back-to-back quasi
   QUASI_B2B: {
@@ -57,11 +57,11 @@ module.exports = {
     expected: [
       {
         type: 'substitution',
-        value: '${foo}'
+        value: 'foo'
       },
       {
         type: 'substitution',
-        value: '${bar}'
+        value: 'bar'
       }
     ]
   },
