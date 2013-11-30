@@ -12,7 +12,7 @@ module.exports = {
   // Normal, valid input. Mix of literals and substitutions. Throw a multiline
   // in there for good measure.
   NORMAL: {
-    input: 'Hello $person, my name is $name.\n' +
+    input: 'Hello ${person}, my name is ${name}.\n' +
            'An expression is all like: ${i * 3 + foo(4)}',
     expected: [
       {
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '$person'
+        value: '${person}'
       },
       {
         type: 'literal',
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '$name'
+        value: '${name}'
       },
       {
         type: 'literal',
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         type: 'substitution',
-        value: '${1 * 3 + foo(4)}'
+        value: '${i * 3 + foo(4)}'
       }
     ]
   },
@@ -46,32 +46,13 @@ module.exports = {
     input: 'Hello person',
     expected: [{type: 'literal', value: 'Hello person'}]
   },
-  // Only contains a QL with no brackets
-  QUASI_NB_ONLY: {
-    input: '$person',
-    expected: [{type: 'substitution', value: '$person'}]
-  },
-  // Only contains a QL with brackets
-  QUASI_B_ONLY: {
+  // Only contains a QL
+  QUASI_ONLY: {
     input: '${person + "!"}',
     expected: [{type: 'substitution', value: '${person + "!"}'}]
   },
-  // Contains a QL w/ bracketed and non-bracketed subs only.
-  QUASI_B_NB_ONLY: {
-    input: '$foo${blargh + Infinity}',
-    expected: [
-      {
-        type: 'substitution',
-        value: '$foo'
-      },
-      {
-        type: 'substitution',
-        value: '${blargh + Infinity}'
-      }
-    ]
-  },
-  // One bracketed identifier follows another
-  QUASI_B2B_B: {
+  // Back-to-back quasi
+  QUASI_B2B: {
     input: '${foo}${bar}',
     expected: [
       {
@@ -84,27 +65,8 @@ module.exports = {
       }
     ]
   },
-  // One non-bracketed identifier follows another
-  QUASI_B2B_NB: {
-    input: '$foo$bar',
-    expected: [
-      {
-        type: 'substitution',
-        value: '$foo'
-      },
-      {
-        type: 'substitution',
-        value: '$bar'
-      }
-    ]
-  },
-  // Escaped sub with no brackets
-  LITERAL_NB_ESCAPED: {
-    input: 'Hello \\$person',
-    expected: [{type: 'literal', value: 'Hello \\$person'}]
-  },
-  // Excaped sub with brackets
-  LITERAL_B_ESCAPED: {
+  // Escaped sub
+  LITERAL_ESCAPED: {
     input: 'Hello \\${person}',
     expected: [{type: 'literal', value: 'Hello \\${person}'}]
   }
