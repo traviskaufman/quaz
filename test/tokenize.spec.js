@@ -1,6 +1,6 @@
 'use strict';
 
-var fixtures = require(FIXTURES_DIR + '/tokenize.js');
+var fixtures = require(FIXTURES_DIR + '/tokenize');
 var tokenize = require(BASE_DIR + '/lib/tokenize');
 
 describe('quaz tokenize function', function() {
