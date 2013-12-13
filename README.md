@@ -1,3 +1,3 @@
 QUAZ
 ====
-ES3-compatible quasi-literal implementation
+ES6-compatible quasi-literal implementation
